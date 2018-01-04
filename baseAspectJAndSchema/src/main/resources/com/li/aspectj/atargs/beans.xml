@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+	<bean id="t0" class="com.li.aspectj.atargs.T0" />
+	<bean id="t1" class="com.li.aspectj.atargs.T1" />
+	<bean id="t2" class="com.li.aspectj.atargs.T2" />
+	<bean id="t3" class="com.li.aspectj.atargs.T3" />
+	<bean class="com.li.aspectj.atargs.AtArgsAspect"/>
+</beans>
