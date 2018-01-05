@@ -36,6 +36,7 @@ public class AtArgsAspectTest {
         T3 t3 = ctx.getBean("t3", T3.class);
 
         // 因t1中的fun入参为t2,且注解标注在了T2类上，t3又是t2的子类，所以 下面两个调用都会织入增强
+        //        若注解点标注在T0处，则不会匹配任何目标类
         t1.fun(t2);
         t1.fun(t3);
 

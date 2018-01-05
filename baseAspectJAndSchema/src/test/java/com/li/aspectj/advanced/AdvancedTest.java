@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.li.SmartSeller;
+import com.li.NaiveWaiter;
 import com.li.Waiter;
 
 /**
@@ -37,6 +37,9 @@ public class AdvancedTest {
 
         //--绑定连接点参数
         //        ((NaiveWaiter) naiveWaiter).smile("John", 2);
+        //--绑定连接点参数——@annotation(M) 取得注解M中的信息
+        ((NaiveWaiter) naiveWaiter).smile("John", 2);
+        ((NaiveWaiter) naiveWaiter).atAnimal("hot dog");
 
         //--绑定代理对象
         //        naiveWaiter.greetTo("John");
@@ -49,9 +52,9 @@ public class AdvancedTest {
         //        seller.sell("Beer", "John");
 
         //绑定异常
-        SmartSeller seller = (SmartSeller) ctx.getBean("seller");
+        //        SmartSeller seller = (SmartSeller) ctx.getBean("seller");
         //        seller.checkBill(2);
-        seller.checkBill(1);
+        //        seller.checkBill(1);
 
         //      naiveWaiter.serveTo("John");
         //      naughtyWaiter.greetTo("Tom");

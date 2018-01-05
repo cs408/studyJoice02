@@ -2,6 +2,9 @@ package com.li.aspectj.advanced;
 
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+import com.li.Animal;
 
 @Aspect
 public class TestAdvancedAspect {
@@ -52,13 +55,23 @@ public class TestAdvancedAspect {
     //        System.out.println("num:" + num);
     //        System.out.println("----bindJoinPointParams()----");
     //    }
-    //        @Before("target(com.li.Animal) && @args(speed,name)")
-    //        public void bindJoinPointParams(int speed, String name) {
-    //            System.out.println("----@args bindJoinPointParams()----");
-    //            System.out.println("name:" + name);
-    //            System.out.println("speed:" + speed);
-    //            System.out.println("----@args bindJoinPointParams()----");
-    //        }
+
+    //跟上述方法一样，但使用起来有点鸡肋。
+    //    @Before(value = "target(com.li.NaiveWaiter) && args(name,num,..)", argNames = "num,name")
+    //    public void beforeGreetingWithArgs(int num, String name) {
+    //        System.out.println("----beforeGreetingWithArgs()----");
+    //        System.out.println("name:" + name);
+    //        System.out.println("num:" + num);
+    //        System.out.println("----beforeGreetingWithArgs()----");
+    //    }
+    //--绑定连接点参数——@annotation(M) 取得注解M中的信息
+    @Before("target(com.li.NaiveWaiter) && @annotation(animal)")
+    public void bindAtAnnotationParams(Animal animal) {
+        System.out.println("---- bindAtAnnotationParams()----");
+        System.out.println("name:" + animal.name());
+        System.out.println("speed:" + animal.value());
+        System.out.println("---- bindAtAnnotationParams()----");
+    }
 
     //------------绑定代理对象----------//
     //    	@Before("execution(* greetTo(..)) && this(waiter)")

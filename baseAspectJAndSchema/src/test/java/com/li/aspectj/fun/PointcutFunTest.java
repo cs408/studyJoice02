@@ -20,9 +20,9 @@ public class PointcutFunTest {
         Waiter naiveWaiter = (Waiter) ctx.getBean("naiveWaiter");
         Waiter naughtyWaiter = (Waiter) ctx.getBean("naughtyWaiter");
         //        @annotation()
-        naiveWaiter.greetTo("John");
-        naughtyWaiter.greetTo("John");
-        naughtyWaiter.serveTo("Tom");
+        //        naiveWaiter.greetTo("John");
+        //        naughtyWaiter.greetTo("John");
+        //        naughtyWaiter.serveTo("Tom");
 
         //@execution() 类定义测试
         //        naughtyWaiter.greetTo("John");
@@ -41,7 +41,7 @@ public class PointcutFunTest {
         //        NaiveWaiter waiter4 = (NaiveWaiter) ctx.getBean("naiveWaiter");
         //        NaiveWaiter waiter5 = new CuteNaiveWaiter();
         //        wm.addNaiveWaiter(waiter3);
-        //        wm.addWaiter(waiter4);//Waiter对象是标注类的父类，不匹配；@M标注在Waiter接口时，匹配
+        //        wm.addWaiter(waiter4);//Waiter——NaiveWaiter——CuteNaiveWaiter 对象是标注类的父类，不匹配；@M标注在Waiter接口时，匹配
         //        wm.addNaiveWaiter(waiter5);
 
         //  within测试

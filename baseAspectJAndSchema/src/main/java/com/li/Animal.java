@@ -9,22 +9,24 @@
 
 package com.li;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * ClassName:Animal <br/>
- * Function: TODO  <br/>
+ * Function: 作为参数注解
  * Date:     2018年1月1日 下午9:22:38 <br/>
  * @author   prd-lxw
  * @version   1.0
  * @since    JDK 1.7
  * @see 	 
  */
-public class Animal {
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Animal {
+    int value() default 0;
 
-    public void eat(String ss, int number) {
-        System.out.print("Animal:eat()" + ss + ":" + number);
-    }
-
-    public void run(int speed, String name) {
-        System.out.println("Animal:run()" + speed + ":" + name);
-    }
+    String name() default "";
 }

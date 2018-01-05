@@ -2,6 +2,7 @@ package com.li.aspectj.fun;
 
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.core.Ordered;
 
 /**
@@ -12,25 +13,28 @@ import org.springframework.core.Ordered;
 @Aspect
 public class TestAspect implements Ordered {
 
-    @AfterReturning("@annotation(com.li.anno.NeedTest)")
-    public void atAnnotaionTest() {
-        System.out.println("atAnnotaionTest() executed!");
-    }
+    //    @AfterReturning("@annotation(com.li.anno.NeedTest)")
+    //    public void atAnnotaionTest() {
+    //        System.out.println("atAnnotaionTest() executed!");
+    //    }
 
     //方法签名定义
     //    @Before("execution(public * *(..))")
     //	public void allPublicFun(){
     //	    System.out.println("allPublicFun() executed!");	
     //	}
+
     //    通过类定义
     //    @Before("execution(* com.li.Waiter.*(..))")
     //    public void allInterfaceMethods() {
     //        System.out.println("allInterfaceMethods() executed!");
     //    }
+
     //    @Before("execution(* com.li.Waiter+.*(..))")
     //    public void allSuperAndSubclassMethods() {
     //        System.out.println("allSuperAndSubclassMethods() executed!");
     //    }
+
     //    @AfterReturning("execution(* *To(..))")
     //    public void allToFun(){
     //    	System.out.println("allToFun() executed!");
@@ -55,10 +59,10 @@ public class TestAspect implements Ordered {
     //        System.out.println("argsTest() executed!");
     //    }
     //-----@args test------//
-    //    @AfterReturning("@args(com.li.Monitorable)")
-    //    public void atArgsTest() {
-    //        System.out.println("atArgsTest() executed!");
-    //    }
+    @AfterReturning("@args(com.li.Monitorable)")
+    public void atArgsTest() {
+        System.out.println("atArgsTest() executed!");
+    }
 
     //    -----------within测试
     //    @Before("within(com.li.Waiter)")
@@ -68,10 +72,10 @@ public class TestAspect implements Ordered {
     //    }
 
     //  -----------@within @target测试
-    //    @Before("@within(com.li.Monitorable)")
-    //    public void atWithinTest() {
-    //        System.out.println("atWithinTest() executed!");
-    //    }
+    @Before("@within(com.li.Monitorable)")
+    public void atWithinTest() {
+        System.out.println("atWithinTest() executed!");
+    }
 
     //    @Before("@target(com.li.Monitorable)")
     //    public void atTargetTest() {

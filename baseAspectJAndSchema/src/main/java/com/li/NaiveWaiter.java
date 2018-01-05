@@ -14,4 +14,10 @@ public class NaiveWaiter implements Waiter {
         System.out.println("NaiveWaiter:smile to  " + clientName + times + "times...");
     }
 
+    //    测试@annotation注解参数绑定
+    @Animal(value = 10, name = "dog")
+    public void atAnimal(String name) {
+        System.out.println("NaiveWaiter#atAnimal:name:  " + name);
+    }
+
 }
